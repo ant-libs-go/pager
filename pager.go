@@ -17,7 +17,7 @@ type Pager struct {
 	pageSize int32
 }
 
-type PagerResult struct {
+type RenderData struct {
 	CurPage   int32 `json:"cur_page"`
 	PageSize  int32 `json:"page_size"`
 	ItemCount int32 `json:"item_count"`
@@ -58,8 +58,8 @@ func (this *Pager) PageSize() (r int32) {
 	return this.pageSize
 }
 
-func (this *Pager) Result() (r *PagerResult) {
-	return &PagerResult{
+func (this *Pager) Render() (r *RenderData) {
+	return &RenderData{
 		CurPage:   this.CurPage(),
 		PageSize:  this.pageSize(),
 		ItemCount: this.ItemCount(),
