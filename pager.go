@@ -18,10 +18,10 @@ type Pager struct {
 }
 
 type RenderData struct {
-	CurPage   int32 `json:"cur_page"`
-	PageSize  int32 `json:"page_size"`
-	ItemCount int32 `json:"item_count"`
-	PageCount int32 `json:"page_count"`
+	CurrentPage int32 `json:"current_page"`
+	PageSize    int32 `json:"page_size"`
+	ItemCount   int32 `json:"item_count"`
+	PageCount   int32 `json:"page_count"`
 }
 
 func New(count, page, pageSize int32) (r *Pager) {
@@ -50,7 +50,7 @@ func (this *Pager) Offset() (r int32) {
 	return (this.page - 1) * this.pageSize
 }
 
-func (this *Pager) CurPage() (r int32) {
+func (this *Pager) CurrentPage() (r int32) {
 	return this.page
 }
 
@@ -60,10 +60,10 @@ func (this *Pager) PageSize() (r int32) {
 
 func (this *Pager) Render() (r *RenderData) {
 	return &RenderData{
-		CurPage:   this.CurPage(),
-		PageSize:  this.pageSize(),
-		ItemCount: this.ItemCount(),
-		PageCount: this.PageCount()}
+		CurrentPage: this.CurrentPage(),
+		PageSize:    this.PageSize(),
+		ItemCount:   this.ItemCount(),
+		PageCount:   this.PageCount()}
 }
 
 // vim: set noexpandtab ts=4 sts=4 sw=4 :
