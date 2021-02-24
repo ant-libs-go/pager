@@ -47,7 +47,11 @@ func (this *Pager) PageCount() (r int32) {
 }
 
 func (this *Pager) Offset() (r int32) {
-	return (this.page - 1) * this.pageSize
+	r = (this.page - 1) * this.pageSize
+	if r > this.count {
+		r = this.count
+	}
+	return
 }
 
 func (this *Pager) CurrentPage() (r int32) {
