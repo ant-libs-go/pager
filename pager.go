@@ -32,7 +32,7 @@ func New(count, page, pageSize int32) (r *Pager) {
 	if o.page <= 1 {
 		o.page = 1
 	}
-	if o.pageSize <= 1 {
+	if o.pageSize < 1 {
 		o.pageSize = DefaultPageSize
 	}
 	return o
